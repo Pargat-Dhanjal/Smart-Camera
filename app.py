@@ -26,7 +26,7 @@ while True:
         #plot the center of the face
         # cv2.circle(frame,(x+w//2,y+h//2),2,(0,255,0),2)
         #plot the roi
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),3)
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(100,255,255),1)
     #plot the squared region in the center of the screen
     # cv2.rectangle(frame,(640//2-30,480//2-30),
     #              (640//2+30,480//2+30),
