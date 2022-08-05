@@ -1,19 +1,20 @@
 #include<Servo.h>
 
 Servo x, y;
-int width = 640, height = 480;  // resolution of feed
-int xpos = 90, ypos = 90;  // initial positions of Servos
-
+int width = 640, height = 480;  // total resolution of the video
+int xpos = 90, ypos = 90;  // initial positions of both Servos
 void setup() {
-  
+
   Serial.begin(9600);
   x.attach(9);
   y.attach(10);
+  // Serial.print(width);
+  //Serial.print("\t");
+  //Serial.println(height);
   x.write(xpos);
   y.write(ypos);
 }
-
-const int angle = 2;   // degree of change in angle
+const int angle = 2;   // degree of increment or decrement
 
 void loop() {
   if (Serial.available() > 0)
@@ -25,9 +26,9 @@ void loop() {
       if (Serial.read() == 'Y')
         y_mid = Serial.parseInt(); // read center y-coordinate
     }
-
-// Bring servo to the center of tiny square
-
+    /* adjust the servo within the squared region if the coordinates
+        is outside it
+    */
     if (x_mid > width / 2 + 30)
       xpos += angle;
     if (x_mid < width / 2 - 30)
@@ -37,8 +38,8 @@ void loop() {
     if (y_mid > height / 2 - 30)
       ypos += angle;
 
-// if the servo degree is outside its range
 
+    // if the servo degree is outside its range
     if (xpos >= 180)
       xpos = 180;
     else if (xpos <= 0)
@@ -51,6 +52,10 @@ void loop() {
     x.write(xpos);
     y.write(ypos);
 
- 
+    // used for testing
+    //Serial.print("\t");
+    // Serial.print(x_mid);
+    // Serial.print("\t");
+    // Serial.println(y_mid);
   }
 }
