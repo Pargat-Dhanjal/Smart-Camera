@@ -5,7 +5,7 @@ Engineering Exploration project for FY BTech. A smart camera which tracks your f
 
 ##Website
 
-![Click-Here]https://pargat-dhanjal.github.io/Owl-Smart-Camera/
+![Click-Here](https://pargat-dhanjal.github.io/Owl-Smart-Camera/)
 
 ## Demo
 
