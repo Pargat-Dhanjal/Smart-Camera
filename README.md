@@ -3,6 +3,10 @@
 
 Engineering Exploration project for FY BTech. A smart camera which tracks your face across in two free axis. The camera detects your face using OpenCV and transmits it to servos via Arduino.
 
+##Website
+
+![Click-Here]https://pargat-dhanjal.github.io/Owl-Smart-Camera/
+
 ## Demo
 
 ![Demo-video](https://github.com/Pargat-Dhanjal/Smart-Camera/blob/master/demo.gif)
