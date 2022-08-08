@@ -1,9 +1,9 @@
+# The above code is detecting the face and sending the coordinates of the face to the Arduino.
 import cv2
 import serial,time
 face_cascade= cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cap=cv2.VideoCapture(0)
-fourcc= cv2.VideoWriter_fourcc(*'XVID')
-ArduinoSerial=serial.Serial('/dev/cu.usbmodem11101',9600,timeout=0.1)
+ArduinoSerial=serial.Serial('/dev/cu.usbmodem11301',9600,timeout=0.1)
 
 while True:
     i = True
@@ -20,9 +20,8 @@ while True:
             i = False
         cv2.rectangle(frame,(x,y),(x+w,y+h),(100,255,255),1)
     cv2.imshow('img',frame)
-    # press q to Quit
+    # press q to Quitq
     if cv2.waitKey(10)&0xFF== ord('q'):
-        ArduinoSerial.write("Z".encode('utf-8'))
         break
 cap.release()
 cv2.destroyAllWindows()
